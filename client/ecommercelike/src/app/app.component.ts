@@ -5,23 +5,24 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   searchTerm = '';
   isCollapsed = true;
+  get token() {
+    return localStorage.getItem('token');
+  }
+
+  collapse() {
+    this.isCollapsed = true;
+  }
+
+  closeDropdown(dropdown) {
+    dropdown.close();
+  }
+
+  logout() {}
+
+  search() {}
+
 }
-
-get token() {
-  return localStorage.getItem('token');
-}
-
-collapse() {
-  this.isCollapsed = true;
-}
-
-closeDropdown(dropdown) {
-  dropdown.close();
-}
-
-logout() {}
-
-search() {}

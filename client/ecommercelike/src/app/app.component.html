@@ -26,7 +26,7 @@
             <div class="dropdown-menu" ngbDropdownMenu>
                 <a *ngIf="token" (click)="closeDropdown(dropdown);collapse()" routerLink="/profile" class="dropdown-item">Profile</a>
                 <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse()" routerLink="/login" class="dropdown-item">Login</a>
-                <a *ngIf="token" (click)="closeDropdown(dropdown);collapse()" routerLink="/logout" class="dropdown-item">Logout</a>
+                <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();logout();" routerLink="/logout" class="dropdown-item">Logout</a>
                 <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse()" routerLink="/register" class="dropdown-item">Register</a>
             </div>
           </li>
