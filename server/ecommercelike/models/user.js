@@ -20,7 +20,7 @@ const UserSchema = new Schema({
     created: { type: Date, default: Date.now }
 })
 
-Schema.pre('save', function(next) {
+UserSchema.pre('save', function(next) {
     var user = this;
 
     if (!user.isModified('password')) return next();

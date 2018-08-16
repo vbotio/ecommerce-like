@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const app = express();
 const config = require("./config");
 const cors = require("cors");
+const userRoutes = require("./routes/account");
+
 
 mongoose.connect(config.database, (err) => {
     if(err) {
@@ -20,11 +22,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 
-app.get("/", (req, res, next) => {
-    res.json({
-        user: 'John Doe'
-    })
-})
+app.use('/api/accounts', userRoutes);
 
 app.listen(config.port, (err) =>{
     console.log("listening to port " + config.port);
