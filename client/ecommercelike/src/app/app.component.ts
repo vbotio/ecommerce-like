@@ -10,7 +10,7 @@ import { DataService } from './data.service';
 
 export class AppComponent {
   searchTerm = '';
-  isCollapsed = true;
+  isCollapsed = false;
 
   constructor(private router: Router, private data: DataService){}
 
