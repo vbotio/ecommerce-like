@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
-modules.export = function(req, res, next) {
+module.exports = function(req, res, next) {
     let token = req.headers['authorization'];
-
     if(token) {
         jwt.verify(token, config.secret, function(err, decoded) {
             if(err) {
@@ -17,7 +16,7 @@ modules.export = function(req, res, next) {
             }
         })
     } else {
-        rest.status(403).json({
+        res.status(403).json({
             success: false,
             message: "no token provided"
         })
