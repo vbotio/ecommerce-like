@@ -82,7 +82,22 @@ router.route('/profile')
             })
         })
     })
-    .post()
+    .post(checkJWT, (req, res, next) => {
+        User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+            if(err) return next(err);
+
+            if(req.body.name) user.name = req.body.name;
+            if(req.body.email) user.email = req.body.email;
+            if(req.body.password) user.password = req.body.password;
+            user.isSeller = req.body.isSeller;
+            
+            user.save();
+            res.json({
+                success: true,
+                message: "profile edited successfully"
+            })
+        })
+    })
 
 
 module.exports = router;
