@@ -61,8 +61,11 @@ export class RegistrationComponent implements OnInit {
         );
         if(data['success']) {
           localStorage.setItem('token', data['token']);
-          this.data.success("registration successful")
           await this.data.getProfile();
+          this.router.navigate(['profile/address'])
+          .then(() => {
+            this.data.success('registration successful. enter your address')
+          }).catch(error => this.data.error(error));
         } else {
           this.data.error(data['message']);
         }

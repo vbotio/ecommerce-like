@@ -1,0 +1,46 @@
+<section id="address">
+  <div class="container p-5">
+    <h4 class="display-4">
+      my shipping address
+    </h4>
+    <hr>
+    <app-message></app-message>
+    <div *ngIf="!currentAddress" class="m-auto">
+      <h1 class="text-center display-3 mt-5"><i class="fa fa-spinner fa-sping"></i></h1>
+    </div>
+    <div *ngIf="currentAddress" class="card bg-light">
+      <div class="card-body">
+        <form action="">
+            <div class="form-group">
+              <label for="">Address 1</label>
+              <input type="text" name="address 1" class="form-control" [(ngModel)]="currentAddress.addr1">
+            </div>
+            <div class="form-group">
+              <label for="">Address 2</label>
+              <input type="text" name="address 2" class="form-control" [(ngModel)]="currentAddress.addr2">
+            </div>
+            <div class="form-group">
+              <label for="">CITY</label>
+              <input type="text" name="city" class="form-control" [(ngModel)]="currentAddress.city">
+            </div>
+            <div class="form-group">
+              <label for="">STATE</label>
+              <input type="text" name="state" class="form-control" [(ngModel)]="currentAddress.state">
+            </div>
+            <div class="form-group">
+              <label for="">postal code</label>
+              <input type="text" name="postal code" class="form-control" [(ngModel)]="currentAddress.postalcode">
+            </div>
+            <div class="form-group">
+              <label for="">country</label>
+              <input type="text" name="state" class="form-control" [(ngModel)]="currentAddress.country">
+            </div>
+            <button type="button" class="btn btn-danger" (click)="updateAddress()" [disabled]="btnDisabled">
+              Change address
+            </button>
+        </form>
+      </div>
+
+    </div> 
+  </div>
+</section>
